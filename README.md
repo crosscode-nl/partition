@@ -11,7 +11,7 @@ This pointed to a package which only has an implementation that uses chans. That
 ## Performance
 
 The following benchmarks show that the partition.ToFunc function is the fastest to use. 
-
+~~~
 BenchmarkToChan100-4      	   50000	     25862 ns/op
 BenchmarkToChan10-4       	  300000	      4939 ns/op
 BenchmarkToChan0-4        	  500000	      2727 ns/op
@@ -24,17 +24,55 @@ BenchmarkToHandler0-4     	 3000000	       478 ns/op
 BenchmarkToIndices10-4    	 2000000	       739 ns/op
 BenchmarkToIndices100-4   	  500000	      3241 ns/op
 BenchmarkToIndices0-4     	50000000	        26.5 ns/op
+~~~
 
 ## Examples
 
-### ToFunc
+### partition.ToFunc
 
 ~~~.go
 	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
-
 	partition.ToFunc(len(a), 5, func(l int, h int) {
 		fmt.Printf("Part: %v\n", a[l:h])
 	})
+	// Output:
+	// Part: [1 2 3 4 5]
+	// Part: [6 7 8 9]
+~~~
+
+### partition.ToChan
+
+~~~.go
+	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	for part := range partition.ToChan(len(a), 5) {
+		fmt.Printf("Part: %v\n", a[part.Low:part.High])
+	}
+	// Output:
+	// Part: [1 2 3 4 5]
+	// Part: [6 7 8 9]
+~~~
+
+### partition.ToHandler
+
+~~~.go
+	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	s := partition.SliceHandler{}
+	partition.ToHandler(len(a), 5, &s)
+	for _, part := range s.Parts {
+		fmt.Printf("Part: %v\n", a[part.Low:part.High])
+	}
+	// Output:
+	// Part: [1 2 3 4 5]
+	// Part: [6 7 8 9]
+~~~
+
+### partition.ToIndices
+
+~~~.go
+	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
+	for _, part := range partition.ToIndices(len(a), 5) {
+		fmt.Printf("Part: %v\n", a[part.Low:part.High])
+	}
 	// Output:
 	// Part: [1 2 3 4 5]
 	// Part: [6 7 8 9]
