@@ -2,7 +2,7 @@ package partition_test
 
 import (
 	"fmt"
-	"gitlab.crosscode.nl/metamsglabs/metamsg/partition"
+	"github.com/crosscode-nl/partition"
 	"reflect"
 	"testing"
 )
