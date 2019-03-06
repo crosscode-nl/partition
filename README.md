@@ -111,7 +111,7 @@ This func returns a slice with all partitions.
 	// Part: [6 7 8 9]
 ~~~
 
-### License
+## License
 
 MIT License
 
