@@ -6,7 +6,7 @@ GO/golang package for partitioning slices, arrays and strings.
 
 I needed a solution for partitioning a slice. I searched for an existing package, and found the following StackOverflow question: https://stackoverflow.com/questions/30242567/in-go-how-can-i-partition-a-slice-array-string-of-any-type
 
-This pointed to a package which only has an implementation that uses chans. That has to much overhead too my liking so I wrote this package, but added more options of using this package to add flexibility of using this package.
+This pointed to a package which only has an implementation that uses chans. That has to much overhead too my liking so I wrote this package, but added more options of using this package to add flexibility in using this package.
 
 ## Performance
 
