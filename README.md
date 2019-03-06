@@ -30,7 +30,7 @@ BenchmarkToIndices0-4     	50000000	        26.5 ns/op
 
 ### partition.ToFunc
 
-~~~.go
+~~~go
 	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 	partition.ToFunc(len(a), 5, func(l int, h int) {
 		fmt.Printf("Part: %v\n", a[l:h])
@@ -42,7 +42,7 @@ BenchmarkToIndices0-4     	50000000	        26.5 ns/op
 
 ### partition.ToChan
 
-~~~.go
+~~~go
 	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 	for part := range partition.ToChan(len(a), 5) {
 		fmt.Printf("Part: %v\n", a[part.Low:part.High])
@@ -54,7 +54,7 @@ BenchmarkToIndices0-4     	50000000	        26.5 ns/op
 
 ### partition.ToHandler
 
-~~~.go
+~~~go
 	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 	s := partition.SliceHandler{}
 	partition.ToHandler(len(a), 5, &s)
@@ -68,7 +68,7 @@ BenchmarkToIndices0-4     	50000000	        26.5 ns/op
 
 ### partition.ToIndices
 
-~~~.go
+~~~go
 	a := []int{1, 2, 3, 4, 5, 6, 7, 8, 9}
 	for _, part := range partition.ToIndices(len(a), 5) {
 		fmt.Printf("Part: %v\n", a[part.Low:part.High])
