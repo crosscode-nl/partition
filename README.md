@@ -1,5 +1,4 @@
-# partition
-
+# partition [![Go Report Card](https://goreportcard.com/badge/github.com/crosscode-nl/partition)](https://goreportcard.com/report/github.com/crosscode-nl/partition)
 GO/golang package for partitioning slices, arrays and strings. 
 
 ## Introduction
@@ -115,7 +114,7 @@ This func returns a slice with all partitions.
 
 MIT License
 
-Copyright (c) 2019 CrossCode
+Copyright (c) 2019 CrossCode / P. Vollebregt
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
